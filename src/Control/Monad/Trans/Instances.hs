@@ -531,14 +531,6 @@ instance Bitraversable Constant where
 # endif
 #endif
 
-#if !(MIN_VERSION_transformers(0,5,5))
-# if MIN_VERSION_base(4,10,0)
-instance (Semigroup.Semigroup a) => Semigroup.Semigroup (Constant a b) where
-    Constant x <> Constant y = Constant (x Semigroup.<> y)
-    {-# INLINE (<>) #-}
-# endif
-#endif
-
 -- Generic(1) instances
 #ifndef HASKELL98
 # if (!(MIN_VERSION_transformers(0,5,0)) && (__GLASGOW_HASKELL__ >= 702 || defined(GENERIC_DERIVING))) \
